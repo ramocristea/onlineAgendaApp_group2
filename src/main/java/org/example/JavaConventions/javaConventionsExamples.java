@@ -12,69 +12,68 @@ import java.util.Random;
 import org.apache.commons.collections4.CollectionUtils;
 import org.example.onlineagendaapp.model.OnlineAgenda;
 import org.example.onlineagendaapp.model.Priority;
-import org.example.onlineagendaapp.model.Task;
+import org.example.onlineagendaapp.model.Tasks;
 
-public class JavaConventionsExample {
-
+public class javaConventionsExamples {
 	public static void main(String[] args) {
 		AgendaCreation(); tasksintheagenda();
 		System.out.println("-----------------------------");
-		Tasktoagenda(LocalDateTime.of(2018, 7, 5, 17, 50), "New task for today", Priority.IMPORTANT);
-		Tasktoagenda(LocalDateTime.of(2018, 7, 5, 19, 50), "New task for today 2", Priority.IMPORTANT);
-		tasksintheagenda();
+Tasktoagenda(LocalDateTime.of(2018, 7, 5, 17, 50), "New Tasks for today", Priority.IMPORTANT);
+		Tasktoagenda(LocalDateTime.of(2018, 7, 5, 19, 50), "New Tasks for today 2", Priority.IMPORTANT);
+	tasksintheagenda();
 		System.out.println("-----------------------------");
 		tasksfortoday();
 	}
 	private static void AgendaCreation() {
 		Onlineagenda = new OnlineAgenda(); int id;
-		LocalDateTime today = LocalDateTime.now();Task yesterdayTask = new Task();
+		LocalDateTime today = LocalDateTime.now();Tasks yesterdayTask = new Tasks();
 		id = getNextRandomId();
 		idlist.add(id);
-		yesterdayTask.setId(id);
-		yesterdayTask.setTargetCompletionDate(today.minusDays(1));
-		yesterdayTask.setPriority(Priority.URGENT);
-		yesterdayTask.setDescription("Yesterday's Task");
+yesterdayTask.setId(id);
+yesterdayTask.setTargetCompletionDate(today.minusDays(1));
+yesterdayTask.setPriority(Priority.URGENT);
+yesterdayTask.setDescription("Yesterday's Tasks");
 		Onlineagenda.getTasks().add(yesterdayTask);
-		Task todayTask = new Task();
+		Tasks todayTask = new Tasks();
 		id = getNextRandomId();
 		idlist.add(id);
 		todayTask.setId(id);
 		todayTask.setTargetCompletionDate(today);
 		todayTask.setPriority(Priority.TRIVIAL);
-		todayTask.setDescription("Today's Task");
+		todayTask.setDescription("Today's Tasks");
 		Onlineagenda.getTasks().add(todayTask);
-		Task tomorrowTask = new Task();id = getNextRandomId();
-		idlist.add(id);
+		Tasks tomorrowTask = new Tasks();id = getNextRandomId();
+	idlist.add(id);
 		tomorrowTask.setId(id);
 		tomorrowTask.setTargetCompletionDate(today.plusDays(1));
 		tomorrowTask.setPriority(Priority.IMPORTANT);
-		tomorrowTask.setDescription("Tomorrow's Task");
+		tomorrowTask.setDescription("Tomorrow's Tasks");
 		Onlineagenda.getTasks().add(tomorrowTask);
 	}
 	private static void tasksintheagenda() {
-		for (Task task : Onlineagenda.getTasks()) {System.out.println(task);}
+		for (Tasks Tasks : Onlineagenda.getTasks()) {System.out.println(Tasks);}
 	}
 	private static void Tasktoagenda(LocalDateTime c, String d, Priority p) {
-		Task tomorrowTask=new Task();int id=getNextRandomId();
-		idlist.add(id);
-		tomorrowTask.setId(id);
-		tomorrowTask.setTargetCompletionDate(c);
-		tomorrowTask.setPriority(p);
-		tomorrowTask.setDescription(d);
-		Onlineagenda.getTasks()
-		.add(tomorrowTask);
+Tasks tomorrowTask=new Tasks();int id=getNextRandomId();
+idlist.add(id);
+tomorrowTask.setId(id);
+tomorrowTask.setTargetCompletionDate(c);
+tomorrowTask.setPriority(p);
+tomorrowTask.setDescription(d);
+Onlineagenda.getTasks()
+.add(tomorrowTask);
 	}
 	private static List<Integer> idlist = new ArrayList<>();
 	private static void deleteTaskFromAgenda(int id) {
-		Iterator<Task> iterator = Onlineagenda.getTasks().iterator();
+		Iterator<Tasks> iterator = Onlineagenda.getTasks().iterator();
 		while (iterator.hasNext()) 
 		{if (iterator.next().getId() == id) 
 		{iterator.remove(); return;}}
 	}
 	private static OnlineAgenda Onlineagenda;
 	private static void updateTaskPriority(int id, Priority newPriority) {
-		for (Task task : Onlineagenda.getTasks()) {if (task.getId() == id) 
-		{task.setPriority(newPriority);return;}
+		for (Tasks Tasks : Onlineagenda.getTasks()) {if (Tasks.getId() == id) 
+		{Tasks.setPriority(newPriority);return;}
 		}
 	}
 	private static int getNextRandomId() {
@@ -82,20 +81,20 @@ public class JavaConventionsExample {
 		return random.nextInt(100);
 	}
 	private static void tasksfortoday() {
-		List<Task> list1 = new ArrayList<>();
-		List<Task> list2 = new ArrayList<>();
-		List<Task> list3 = new ArrayList<>();
-		for (Task task : Onlineagenda.getTasks()) 
-		{if (LocalDate.now().isEqual(task.getTargetCompletionDate().toLocalDate())) 
-		{switch (task.getPriority()) {
-				case URGENT: list1.add(task);break;
-			case IMPORTANT:list2.add(task);
+		List<Tasks> list1 = new ArrayList<>();
+		List<Tasks> list2 = new ArrayList<>();
+		List<Tasks> list3 = new ArrayList<>();
+		for (Tasks Tasks : Onlineagenda.getTasks()) 
+		{if (LocalDate.now().isEqual(Tasks.getTargetCompletionDate().toLocalDate())) 
+		{switch (Tasks.getPriority()) {
+				case URGENT: list1.add(Tasks);break;
+			case IMPORTANT:list2.add(Tasks);
 					break;
 				case TRIVIAL:
-					list3.add(task);break;
+					list3.add(Tasks);break;
 		}}}
-		Collections.sort(list1, new Comparator<Task>() {@Override
-			public int compare(Task o1, Task o2) {if (o1.getTargetCompletionDate() == null && o2.getTargetCompletionDate() != null) {
+		Collections.sort(list1, new Comparator<Tasks>() {@Override
+			public int compare(Tasks o1, Tasks o2) {if (o1.getTargetCompletionDate() == null && o2.getTargetCompletionDate() != null) {
 					return -1;
 			}return o1.getTargetCompletionDate().compareTo(o2.getTargetCompletionDate());
 			}
@@ -103,21 +102,21 @@ public class JavaConventionsExample {
 		System.out.println("URGENT tasks for today:");
 		if (CollectionUtils.isEmpty(list1)) {
 		System.out.println("You have no URGENT tasks");} else {
-			for (Task task : list1) {System.out.println(task.toString());
+			for (Tasks Tasks : list1) {System.out.println(Tasks.toString());
 			}}System.out.println("-----------------------------");
 		System.out.println("IMPORTANT tasks for today:");
 		if (CollectionUtils.isEmpty(list2)) {
 		System.out.println("You have no IMPORTANT tasks");} 
 		
 		else 
-		{for (Task task : list2) {System.out.println(task.toString());
+		{for (Tasks Tasks : list2) {System.out.println(Tasks.toString());
 			}
 				}
 		System.out.println("-----------------------------");
 		System.out.println("TRIVIAL tasks for today:");
 		if (CollectionUtils.isEmpty(list3)) 
 		{System.out.println("You have no TRIVIAL tasks");} else 
-		{for (Task task : list3) {System.out.println(task.toString());
+		{for (Tasks Tasks : list3) {System.out.println(Tasks.toString());
 			}
 			}
 

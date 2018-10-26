@@ -2,16 +2,16 @@ package org.example.onlineagendaapp.model;
 
 import java.time.LocalDateTime;
 
-public class Task {
+public class Tasks {
 
 	private int id;
 	private LocalDateTime targetCompletionDate;
 	private Priority priority;
 	private String description;
 	
-	public Task() {};
+	public Tasks() {};
 	
-	public Task(LocalDateTime targetCompletionDate, Priority priority, String description) {
+	public Tasks(LocalDateTime targetCompletionDate, Priority priority, String description) {
 		this.targetCompletionDate = targetCompletionDate;
 		this.priority = priority;
 		this.description = description;
@@ -66,7 +66,7 @@ public class Task {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Task other = (Task) obj;
+		Tasks other = (Tasks) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
