@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.examle.onlineagendaapp.TaskComparator;
+import org.example.onlineagendaapp.comparator.TaskComparator;
 import org.example.onlineagendaapp.model.OnlineAgenda;
 import org.example.onlineagendaapp.model.Priority;
 import org.example.onlineagendaapp.model.Task;

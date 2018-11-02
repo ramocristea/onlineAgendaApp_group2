@@ -1,4 +1,4 @@
-package org.examle.onlineagendaapp;
+package org.example.onlineagendaapp.comparator;
 
 import java.util.Comparator;
 

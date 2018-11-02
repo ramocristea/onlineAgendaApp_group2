@@ -1,4 +1,4 @@
-package org.examle.onlineagendaapp.util;
+package org.example.onlineagendaapp.util;
 
 import java.util.Random;
 

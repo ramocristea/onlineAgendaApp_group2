@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.examle.onlineagendaapp.util.NumberGeneratorUtil;
+import org.example.onlineagendaapp.util.NumberGeneratorUtil;
 
 public class Task {
 	private static List<Integer> ids = new ArrayList<>();
