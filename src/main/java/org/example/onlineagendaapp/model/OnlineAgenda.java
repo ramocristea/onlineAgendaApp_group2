@@ -5,16 +5,16 @@ import java.util.List;
 
 public class OnlineAgenda {
 
-	private List<Tasks> tasks;
+	private List<Task> tasks;
 
-	public List<Tasks> getTasks() {
+	public List<Task> getTasks() {
 		if (tasks == null) {
-			tasks = new ArrayList<Tasks>();
+			tasks = new ArrayList<Task>();
 		}
 		return tasks;
 	}
 
-	public void setTasks(List<Tasks> tasks) {
+	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
 	}
 

@@ -1,17 +1,27 @@
 package org.example.onlineagendaapp.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Tasks {
+import org.examle.onlineagendaapp.util.NumberGeneratorUtil;
+
+public class Task {
+	private static List<Integer> ids = new ArrayList<>();
 
 	private int id;
 	private LocalDateTime targetCompletionDate;
 	private Priority priority;
 	private String description;
 	
-	public Tasks() {};
+	public Task() {
+		this.id = NumberGeneratorUtil.getNextRandomId();
+		ids.add(id);
+	};
 	
-	public Tasks(LocalDateTime targetCompletionDate, Priority priority, String description) {
+	public Task(LocalDateTime targetCompletionDate, Priority priority, String description) {
+		this.id = NumberGeneratorUtil.getNextRandomId();
+		ids.add(id);
 		this.targetCompletionDate = targetCompletionDate;
 		this.priority = priority;
 		this.description = description;
@@ -66,7 +76,7 @@ public class Tasks {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Tasks other = (Tasks) obj;
+		Task other = (Task) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
